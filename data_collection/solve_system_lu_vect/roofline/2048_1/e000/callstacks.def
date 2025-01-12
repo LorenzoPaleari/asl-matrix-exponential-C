@@ -1,0 +1,879 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	     10320	    0	      0	                                  _start	/home/asl/Lorenzo/ASL-project-team28/bin	10320	43	0	2	0	0	0	0	0	0	0	0
+         2	        -1	     10361	    0	      0	                                  _start	/home/asl/Lorenzo/ASL-project-team28/bin	10320	43	0	2	0	0	0	0	0	0	0	0
+         3	       392	    146697	    1	      1	 [Loop at line 261 in __libc_start_main]	/lib/x86_64-linux-gnu/libc.so.6	146561,146800	223,140	0	92	0	0	0	0	0	0	0	0
+         4	         3	     34221	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+         5	         4	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+         6	         5	   2855807	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+         7	         6	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+         8	         7	   2381565	    0	      0	                       [MKL BLAS]@xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2381328	560	0	114	0	0	0	0	0	0	0	0
+         9	         8	   2207283	    0	      0	                  [MKL SERVICE]@load_dll	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2206704	624	0	115	0	0	0	0	0	0	0	0
+        10	         9	   2208682	    0	      0	           __mkl_cpu_detect_and_load_dll	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2207328	3072	0	116	0	0	0	0	0	0	0	0
+        11	        10	   2210611	    0	      0	                         MKL_Load_Lib_Ex	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2210400	528	0	117	0	0	0	0	0	0	0	0
+        12	        11	      4835	    0	      1	                                __dlopen	/lib/x86_64-linux-gnu/libdl.so.2	4768	154	0	70	0	0	0	0	0	0	0	0
+        13	        12	      6756	    0	      1	                            _dlerror_run	/lib/x86_64-linux-gnu/libdl.so.2	6656	368	0	71	0	0	0	0	0	0	0	0
+        14	        13	   1268558	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268512	102	0	94	0	0	0	0	0	0	0	0
+        15	        14	   1268367	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268240	268	0	95	0	0	0	0	0	0	0	0
+        16	        15	      4695	    0	      1	                             dlopen_doit	/lib/x86_64-linux-gnu/libdl.so.2	4608	146	0	72	0	0	0	0	0	0	0	0
+        17	       868	     80121	    1	      1	          [Loop at line 809 in _dl_open]	/lib64/ld-linux-x86-64.so.2	80048,80300,80328,80534,80616	126,22,196,77,82	0	4	0	0	0	0	0	0	0	0
+        18	        17	   1268367	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268240	268	0	95	0	0	0	0	0	0	0	0
+        19	        18	     81444	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	81056	2716	0	10	0	0	0	0	0	0	0	0
+        20	        19	   8634804	    0	      1	                           func@0x83c170	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8634736	128	0	124	0	0	0	0	0	0	0	0
+        21	        20	   8634596	    0	      1	                           func@0x83c080	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8634496	240	0	125	0	0	0	0	0	0	0	0
+        22	       542	   8629786	    1	      1	        [Loop@0x83abf0 in func@0x838d00]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8629232,8629912,8629944,8630248,8630296,8630344,8631538	674,25,257,42,44,15,54	0	126	0	0	0	0	0	0	0	0
+        23	        22	   8345338	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8345264	211	0	128	0	0	0	0	0	0	0	0
+        24	        23	   8334895	    0	      1	                           func@0x7f2650	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8332880	12384	0	129	0	0	0	0	0	0	0	0
+        25	        24	   8782046	    0	      1	          LEVEL_PINCLIENT::ElfCookRegsym	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8781600	2851	0	130	0	0	0	0	0	0	0	0
+        26	       544	   8795185	    1	      1	[Loop@0x863318 in LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794904,8795520,8796816,8797264	560,61,160,38	0	131	0	0	0	0	0	0	0	0
+        27	       546	   8789608	    1	      1	[Loop@0x861e68 in std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789608,8789904	139,23	0	133	0	0	0	0	0	0	0	0
+        28	        24	   8783348	    0	      1	          LEVEL_PINCLIENT::ElfCookRegsym	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8781600	2851	0	130	0	0	0	0	0	0	0	0
+        29	       548	   8795185	    1	      1	[Loop@0x863318 in LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794904,8795520,8796816,8797264	560,61,160,38	0	131	0	0	0	0	0	0	0	0
+        30	       550	   8789621	    1	      1	[Loop@0x861e68 in std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789608,8789904	139,23	0	133	0	0	0	0	0	0	0	0
+        31	        30	    417524	    0	      1	                                  memcmp	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libc-dynamic.so	417504	149	0	60	0	0	0	0	0	0	0	0
+        32	       553	   8782621	    1	      1	[Loop@0x860318 in LEVEL_PINCLIENT::ElfCookRegsym]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8782616	24	0	135	0	0	0	0	0	0	0	0
+        33	        23	   8337738	    0	      1	                           func@0x7f2650	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8332880	12384	0	129	0	0	0	0	0	0	0	0
+        34	        33	   8710318	    0	      1	     LEVEL_PINCLIENT::GetSubprogramsInfo	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8710256	7657	0	137	0	0	0	0	0	0	0	0
+        35	        34	    234553	    0	      1	               GetSubprogramsListInImage	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	234512	796	0	62	0	0	0	0	0	0	0	0
+        36	        35	    230482	    0	      1	                        LoadDwarfForFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	230224	3360	0	63	0	0	0	0	0	0	0	0
+        37	        36	    240128	    0	      1	llvm::object::ObjectFile::createObjectFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	240048	178	0	64	0	0	0	0	0	0	0	0
+        38	        37	    670267	    0	      1	             llvm::MemoryBuffer::getFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670096	290	0	65	0	0	0	0	0	0	0	0
+        39	       386	    670765	    1	      1	       [Loop@0xa3c20 in getOpenFileImpl]	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670752,670786	32,13	0	66	0	0	0	0	0	0	0	0
+        40	        39	    399491	    0	      1	                                    read	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libc-dynamic.so	399456	79	0	61	0	0	0	0	0	0	0	0
+        41	        40	   5367615	    0	      1	                               OS_ReadFD	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5367584	135	0	85	0	0	0	0	0	0	0	0
+        42	        41	   5351343	    0	      1	                            OS_SyscallDo	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5351120	374	0	87	0	0	0	0	0	0	0	0
+        43	        42	   5379883	    0	      1	    OS_BARESYSCALL_DoCallAsmIntel64Linux	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5379852	36	0	111	0	0	0	0	0	0	0	0
+        44	        23	   8334936	    0	      1	                           func@0x7f2650	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8332880	12384	0	129	0	0	0	0	0	0	0	0
+        45	       558	   8327835	    1	      1	        [Loop@0x7f1227 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8327719,8328000,8328048,8328064,8328144,8328168,8329369	216,40,13,70,18,9,53	0	138	0	0	0	0	0	0	0	0
+        46	        45	   9243982	    0	      1	                   LEVEL_CORE::RTN_Alloc	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	9243680	1081	0	143	0	0	0	0	0	0	0	0
+        47	       388	    342172	    1	      1	          [Loop@0x53894 in operator new]	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	342164,342220	51,5	0	68	0	0	0	0	0	0	0	0
+        48	        47	   2085962	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2084240	2584	0	112	0	0	0	0	0	0	0	0
+        49	        48	   2080929	    0	      1	          LEVEL_BASE::SWMALLOC::GetPages	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2080848	105	0	113	0	0	0	0	0	0	0	0
+        50	       556	   8326941	    1	      1	        [Loop@0x7f0ba4 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8326052,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8328880,8329279,8329369,8329461,8329529,8329870,8329919,8330179	981,301,103,494,13,40,13,70,18,9,144,23,53,51,228,19,25,137	0	141	0	0	0	0	0	0	0	0
+        51	       562	   8307399	    1	      1	        [Loop@0x7eb238 in func@0x7eb180]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8303160,8305768,8305800,8305832,8305864,8305896,8305928,8305960,8305992,8306224,8306488,8306720,8306960,8307232,8307280,8307344,8307392,8307440,8307496,8307552,8307600,8307648,8307672,8307696,8307712,8307736,8307760,8307800,8307840,8307872,8307968,8308040,8308064,8308088,8308120,8308144,8308255	2601,25,25,25,25,25,25,25,231,257,225,234,270,41,54,44,41,51,54,44,44,17,16,15,17,15,36,36,26,37,68,17,17,27,17,12,8	0	144	0	0	0	0	0	0	0	0
+        52	        51	    528219	    0	      1	           std::__malloc_alloc::allocate	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libstlport-dynamic.so	528208	92	0	1	0	0	0	0	0	0	0	0
+        53	        52	   2085114	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2084240	2584	0	112	0	0	0	0	0	0	0	0
+        54	       872	   2088495	    1	      1	[Loop@0x1fdc08 in ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal]	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087944,2088464	108,48	0	118	0	0	0	0	0	0	0	0
+        55	        54	   5129071	    0	      1	                 ATOMIC_CompareAndSwap64	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5129060	15	0	120	0	0	0	0	0	0	0	0
+        56	       562	   8307607	    1	      1	        [Loop@0x7eb238 in func@0x7eb180]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8303160,8305768,8305800,8305832,8305864,8305896,8305928,8305960,8305992,8306224,8306488,8306720,8306960,8307232,8307280,8307344,8307392,8307440,8307496,8307552,8307600,8307648,8307672,8307696,8307712,8307736,8307760,8307800,8307840,8307872,8307968,8308040,8308064,8308088,8308120,8308144,8308255	2601,25,25,25,25,25,25,25,231,257,225,234,270,41,54,44,41,51,54,44,44,17,16,15,17,15,36,36,26,37,68,17,17,27,17,12,8	0	144	0	0	0	0	0	0	0	0
+        57	        56	    528219	    0	      1	           std::__malloc_alloc::allocate	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libstlport-dynamic.so	528208	92	0	1	0	0	0	0	0	0	0	0
+        58	        57	   2085114	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2084240	2584	0	112	0	0	0	0	0	0	0	0
+        59	       875	   2087697	    1	      1	[Loop@0x1fdafa in ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal]	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087674,2087760	78,47	0	121	0	0	0	0	0	0	0	0
+        60	        59	   5129054	    0	      1	                 ATOMIC_CompareAndSwap32	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5129044	13	0	123	0	0	0	0	0	0	0	0
+        61	         9	   2208775	    0	      0	           __mkl_cpu_detect_and_load_dll	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2207328	3072	0	116	0	0	0	0	0	0	0	0
+        62	        61	   2210611	    0	      0	                         MKL_Load_Lib_Ex	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so.2	2210400	528	0	117	0	0	0	0	0	0	0	0
+        63	        62	      4835	    0	      1	                                __dlopen	/lib/x86_64-linux-gnu/libdl.so.2	4768	154	0	70	0	0	0	0	0	0	0	0
+        64	        63	      6756	    0	      1	                            _dlerror_run	/lib/x86_64-linux-gnu/libdl.so.2	6656	368	0	71	0	0	0	0	0	0	0	0
+        65	        64	   1268558	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268512	102	0	94	0	0	0	0	0	0	0	0
+        66	        65	   1268367	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268240	268	0	95	0	0	0	0	0	0	0	0
+        67	        66	      4695	    0	      1	                             dlopen_doit	/lib/x86_64-linux-gnu/libdl.so.2	4608	146	0	72	0	0	0	0	0	0	0	0
+        68	       870	     80121	    1	      1	          [Loop at line 809 in _dl_open]	/lib64/ld-linux-x86-64.so.2	80048,80300,80328,80534,80616	126,22,196,77,82	0	4	0	0	0	0	0	0	0	0
+        69	        68	   1268367	    0	      1	                                    __GI	/lib/x86_64-linux-gnu/libc.so.6	1268240	268	0	95	0	0	0	0	0	0	0	0
+        70	        69	     81444	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	81056	2716	0	10	0	0	0	0	0	0	0	0
+        71	        70	   8634804	    0	      1	                           func@0x83c170	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8634736	128	0	124	0	0	0	0	0	0	0	0
+        72	        71	   8634596	    0	      1	                           func@0x83c080	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8634496	240	0	125	0	0	0	0	0	0	0	0
+        73	       565	   8629786	    1	      1	        [Loop@0x83abf0 in func@0x838d00]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8629232,8629912,8629944,8630248,8630296,8630344,8631538	674,25,257,42,44,15,54	0	126	0	0	0	0	0	0	0	0
+        74	        73	   8345338	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8345264	211	0	128	0	0	0	0	0	0	0	0
+        75	        74	   8337738	    0	      1	                           func@0x7f2650	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8332880	12384	0	129	0	0	0	0	0	0	0	0
+        76	        75	   8710318	    0	      1	     LEVEL_PINCLIENT::GetSubprogramsInfo	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8710256	7657	0	137	0	0	0	0	0	0	0	0
+        77	        76	    234553	    0	      1	               GetSubprogramsListInImage	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	234512	796	0	62	0	0	0	0	0	0	0	0
+        78	        77	    230482	    0	      1	                        LoadDwarfForFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	230224	3360	0	63	0	0	0	0	0	0	0	0
+        79	        78	    240128	    0	      1	llvm::object::ObjectFile::createObjectFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	240048	178	0	64	0	0	0	0	0	0	0	0
+        80	        79	    670267	    0	      1	             llvm::MemoryBuffer::getFile	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670096	290	0	65	0	0	0	0	0	0	0	0
+        81	       390	    670765	    1	      1	       [Loop@0xa3c20 in getOpenFileImpl]	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670752,670786	32,13	0	66	0	0	0	0	0	0	0	0
+        82	        81	    399491	    0	      1	                                    read	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libc-dynamic.so	399456	79	0	61	0	0	0	0	0	0	0	0
+        83	        82	   5367615	    0	      1	                               OS_ReadFD	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5367584	135	0	85	0	0	0	0	0	0	0	0
+        84	        83	   5351343	    0	      1	                            OS_SyscallDo	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5351120	374	0	87	0	0	0	0	0	0	0	0
+        85	        84	   5379883	    0	      1	    OS_BARESYSCALL_DoCallAsmIntel64Linux	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	5379852	36	0	111	0	0	0	0	0	0	0	0
+        86	        74	   8334936	    0	      1	                           func@0x7f2650	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8332880	12384	0	129	0	0	0	0	0	0	0	0
+        87	       568	   8326941	    1	      1	        [Loop@0x7f0ba4 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8326052,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8328880,8329279,8329369,8329461,8329529,8329870,8329919,8330179	981,301,103,494,13,40,13,70,18,9,144,23,53,51,228,19,25,137	0	141	0	0	0	0	0	0	0	0
+        88	       571	   8304599	    1	      1	        [Loop@0x7eb238 in func@0x7eb180]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8303160,8305768,8305800,8305832,8305864,8305896,8305928,8305960,8305992,8306224,8306488,8306720,8306960,8307232,8307280,8307344,8307392,8307440,8307496,8307552,8307600,8307648,8307672,8307696,8307712,8307736,8307760,8307800,8307840,8307872,8307968,8308040,8308064,8308088,8308120,8308144,8308255	2601,25,25,25,25,25,25,25,231,257,225,234,270,41,54,44,41,51,54,44,44,17,16,15,17,15,36,36,26,37,68,17,17,27,17,12,8	0	144	0	0	0	0	0	0	0	0
+        89	       573	   8302704	    1	      1	        [Loop@0x7eafe0 in func@0x7eafb0]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302560,8302700	47,9	0	147	0	0	0	0	0	0	0	0
+        90	         7	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+        91	       579	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+        92	        91	   5320276	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+        93	       582	   8321781	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+        94	       584	   8320538	    1	      0	[Loop@0x7ef610 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320528	493	8321021	90	0	0	0	0	0	0	0	0
+        95	       586	   8321228	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+        96	       586	   8321243	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+        97	        91	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+        98	       591	   8336352	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+        99	       593	   8335470	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       100	       591	   8336357	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       101	       590	   8336679	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       102	       593	   8335644	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       103	       591	   8336266	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       104	       591	   8336130	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       105	       590	   8335236	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       106	       590	   8336586	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       107	       591	   8336030	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       108	       593	   8335544	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       109	       591	   8336225	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       110	       591	   8336367	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       111	       579	   5326337	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       112	       111	   5317897	    0	      0	            [MKL BLAS]@avx2_dgemm_copyan	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317840	64	0	101	0	0	0	0	0	0	0	0
+       113	       608	   8282123	    1	      0	[Loop@0x7e5f80 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281984	377	8282361	102	0	0	0	0	0	0	0	0
+       114	       591	   8336039	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       115	       593	   8335838	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       116	       591	   8336065	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       117	       593	   8335714	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       118	       593	   8335743	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       119	       593	   8335853	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       120	       590	   8335246	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       121	       591	   8335986	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       122	       591	   8336174	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       123	       591	   8335957	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       124	       591	   8336385	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       125	       591	   8336193	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       126	       591	   8336406	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       127	       591	   8336049	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       128	       591	   8336091	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       129	       591	   8336104	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       130	       578	   5325934	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       131	       130	   5318025	    0	      0	            [MKL BLAS]@avx2_dgemm_copybn	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317968	64	0	105	0	0	0	0	0	0	0	0
+       132	       628	   8307742	    1	      0	[Loop@0x7ec380 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307584	205	8307789	106	0	0	0	0	0	0	0	0
+       133	         3	     34278	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       134	       133	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+       135	       134	   2855545	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+       136	       135	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+       137	       136	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+       138	       634	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       139	       138	   5320276	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       140	       638	   8321271	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       141	       638	   8321405	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       142	       638	   8321128	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       143	       638	   8321182	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       144	       633	   5325934	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       145	       144	   5318025	    0	      0	            [MKL BLAS]@avx2_dgemm_copybn	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317968	64	0	105	0	0	0	0	0	0	0	0
+       146	       645	   8307590	    1	      0	[Loop@0x7ec380 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307584	205	8307789	106	0	0	0	0	0	0	0	0
+       147	       138	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       148	       649	   8335941	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       149	       649	   8336220	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       150	       649	   8336241	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       151	       649	   8336150	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       152	       649	   8335946	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       153	       649	   8336406	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       154	       649	   8336174	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       155	       649	   8336114	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       156	       649	   8336225	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       157	       649	   8336266	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       158	       649	   8336326	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       159	       649	   8336209	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       160	       649	   8336125	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       161	       649	   8336140	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       162	       649	   8336130	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       163	       666	   8338220	    1	      0	[Loop@0x7f3ac0 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8338112	369	8338481	109	0	0	0	0	0	0	0	0
+       164	       649	   8336091	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       165	       649	   8336380	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       166	       649	   8336279	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       167	       671	   8335565	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       168	       649	   8336076	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       169	       649	   8336235	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       170	       649	   8336039	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       171	       649	   8335957	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       172	       634	   5326337	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       173	       172	   5317897	    0	      0	            [MKL BLAS]@avx2_dgemm_copyan	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317840	64	0	101	0	0	0	0	0	0	0	0
+       174	       679	   8281990	    1	      0	[Loop@0x7e5f80 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281984	377	8282361	102	0	0	0	0	0	0	0	0
+       175	       649	   8336030	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       176	       671	   8335797	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       177	       671	   8335544	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       178	       671	   8335644	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       179	         3	     34339	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       180	       179	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+       181	       180	   2855545	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+       182	       181	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+       183	       182	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+       184	       689	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       185	       184	   5320276	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       186	       692	   8321788	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       187	       694	   8320845	    1	      0	[Loop@0x7ef610 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320528	493	8321021	90	0	0	0	0	0	0	0	0
+       188	       696	   8321271	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       189	       694	   8321015	    1	      0	[Loop@0x7ef610 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320528	493	8321021	90	0	0	0	0	0	0	0	0
+       190	       184	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       191	       701	   8336060	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       192	       701	   8336065	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       193	       701	   8336135	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       194	       701	   8336209	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       195	       701	   8336214	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       196	       701	   8336393	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       197	       701	   8336385	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       198	       709	   8335575	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       199	       701	   8336308	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       200	       709	   8335787	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       201	       701	   8336342	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       202	       709	   8335863	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       203	       701	   8336287	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       204	       701	   8336225	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       205	       709	   8335812	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       206	       701	   8336039	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       207	       701	   8336125	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       208	       709	   8335621	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       209	       700	   8336754	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       210	       701	   8335941	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       211	       701	   8335986	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       212	       701	   8336070	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       213	       709	   8335820	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       214	       701	   8336035	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       215	       709	   8335549	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       216	       709	   8335743	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       217	       701	   8336145	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       218	       701	   8336114	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       219	       701	   8336193	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       220	       701	   8336097	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       221	       700	   8336731	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       222	       701	   8335964	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       223	       701	   8336188	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       224	       701	   8336326	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       225	         3	     34400	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       226	       225	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+       227	       226	   2855545	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+       228	       227	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+       229	       228	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+       230	       741	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       231	       230	   5320276	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       232	       745	   8321405	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       233	       744	   8321788	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       234	       745	   8321537	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       235	       745	   8321366	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       236	       740	   5325934	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       237	       236	   5318025	    0	      0	            [MKL BLAS]@avx2_dgemm_copybn	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317968	64	0	105	0	0	0	0	0	0	0	0
+       238	       752	   8307597	    1	      0	[Loop@0x7ec380 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307584	205	8307789	106	0	0	0	0	0	0	0	0
+       239	       230	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       240	       756	   8336209	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       241	       756	   8336070	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       242	       759	   8335719	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       243	       756	   8335986	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       244	       759	   8335644	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       245	       756	   8336174	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       246	       756	   8336419	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       247	       756	   8336049	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       248	       759	   8335570	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       249	       756	   8336097	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       250	       756	   8336055	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       251	       759	   8335575	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       252	       756	   8336380	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       253	       752	   8307590	    1	      0	[Loop@0x7ec380 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307584	205	8307789	106	0	0	0	0	0	0	0	0
+       254	       756	   8336188	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       255	       756	   8336119	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       256	       756	   8336007	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       257	       755	   8336735	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       258	       756	   8336114	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       259	       756	   8336347	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       260	       756	   8336220	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       261	       756	   8336261	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       262	       759	   8335853	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       263	       759	   8335447	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       264	       756	   8336204	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       265	       755	   8336675	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       266	       759	   8335803	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       267	       756	   8336104	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       268	       759	   8335771	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       269	       756	   8336044	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       270	       756	   8335971	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       271	       756	   8336326	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       272	         3	     34465	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       273	       272	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+       274	       273	   2855545	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+       275	       274	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+       276	       275	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+       277	       794	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       278	       277	   5320276	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       279	       798	   8321261	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       280	       800	   8320573	    1	      0	[Loop@0x7ef610 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320528	493	8321021	90	0	0	0	0	0	0	0	0
+       281	       800	   8320652	    1	      0	[Loop@0x7ef610 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320528	493	8321021	90	0	0	0	0	0	0	0	0
+       282	       798	   8321413	    1	      0	[Loop@0x7ef840 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8321088	494	8321582	91	0	0	0	0	0	0	0	0
+       283	       794	   5326337	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       284	       283	   5317897	    0	      0	            [MKL BLAS]@avx2_dgemm_copyan	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5317840	64	0	101	0	0	0	0	0	0	0	0
+       285	       806	   8282184	    1	      0	[Loop@0x7e5f80 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281984	377	8282361	102	0	0	0	0	0	0	0	0
+       286	       277	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       287	       810	   8336253	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       288	       810	   8336372	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       289	       813	   8335633	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       290	       810	   8336055	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       291	       810	   8336035	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       292	       810	   8336086	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       293	       810	   8335946	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       294	       810	   8336174	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       295	       813	   8335565	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       296	       810	   8335941	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       297	       810	   8336321	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       298	       813	   8335771	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       299	       810	   8336230	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       300	       810	   8336070	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       301	       806	   8282014	    1	      0	[Loop@0x7e5f80 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281984	377	8282361	102	0	0	0	0	0	0	0	0
+       302	       810	   8336060	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       303	       810	   8336419	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       304	       810	   8335964	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       305	       813	   8335693	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       306	       810	   8336130	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       307	       810	   8336164	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       308	       813	   8335706	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       309	       810	   8336287	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       310	       813	   8335766	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       311	       813	   8335381	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       312	       810	   8336235	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       313	       810	   8335986	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       314	       810	   8336367	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       315	       813	   8335665	    1	      0	[Loop@0x7f3010 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335376	493	8335869	100	0	0	0	0	0	0	0	0
+       316	       810	   8336135	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       317	       810	   8336020	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       318	       810	   8336261	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       319	         3	     36126	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       320	       400	     40889	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::operator()	/home/asl/Lorenzo/ASL-project-team28/bin	40780,40889,41125	91,84,84	0	7	0	1	0	0	0	0	0	0
+       321	       404	     41065	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       322	       399	     41013	    0	      0	std::generate_canonical<double, (unsigned long)53, std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40780,41039,41104	249,19,105	0	11	0	1	0	0	0	0	0	0
+       323	       404	     40772	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       324	         3	     36167	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       325	       415	     41191	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::operator()	/home/asl/Lorenzo/ASL-project-team28/bin	40780,40889,41125	91,84,84	0	7	0	1	0	0	0	0	0	0
+       326	       418	     40005	    1	      0	[Loop at line 401 in std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand]	/home/asl/Lorenzo/ASL-project-team28/bin	40000	59	40059	16	0	0	0	0	0	0	0	0
+       327	       412	     41058	    0	      0	std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40696,40725,40780,41039,41104	19,11,255,26,105	0	13	0	1	0	0	0	0	0	0
+       328	       415	     40947	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::operator()	/home/asl/Lorenzo/ASL-project-team28/bin	40780,40889,41125	91,84,84	0	7	0	1	0	0	0	0	0	0
+       329	       424	     36356	    1	      0	 [Loop at line 370 in benchmark_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	36208	166	36374	18	0	0	0	0	0	0	0	0
+       330	       431	     21681	    0	      0	                     _mm256_broadcast_sd	/home/asl/Lorenzo/ASL-project-team28/bin	21681	17	0	19	0	1	0	0	0	0	0	0
+       331	       435	     21804	    0	      0	                        _mm256_fnmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	21789,21804	4,6	0	27	0	1	0	0	0	0	0	0
+       332	       442	     21372	    1	      0	    [Loop at line 77 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21368	17	21385	29	0	0	0	0	0	0	0	0
+       333	       445	     26006	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       334	       333	   3368110	    0	      0	                             cblas_dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	3367728	688	0	73	0	0	0	0	0	0	0	0
+       335	       334	   2855545	    0	      0	                                  dgemm_	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2	2855072	1728	0	74	0	0	0	0	0	0	0	0
+       336	       335	   2182682	    0	      0	                        [MKL BLAS]@dgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so.2	2181968	1504	0	76	0	0	0	0	0	0	0	0
+       337	       336	   5395638	    0	      0	                  [MKL BLAS]@avx2_xdgemm	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5394224	3952	0	77	0	0	0	0	0	0	0	0
+       338	       848	   5326593	    1	      0	[Loop@0x5144b3 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5326003	608	5326611	78	0	0	0	0	0	0	0	0
+       339	       338	   5320250	    0	      0	              [MKL BLAS]@avx2_dgemm_ker0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5320192	96	0	84	0	0	0	0	0	0	0	0
+       340	       852	   8336174	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       341	       852	   8336109	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       342	       852	   8336303	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       343	       448	     21704	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       344	       451	     21286	    1	      0	    [Loop at line 40 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21280	35	21315	30	0	0	0	0	0	0	0	0
+       345	       457	     25653	    0	      0	                           _mm256_sub_pd	/home/asl/Lorenzo/ASL-project-team28/bin	25653,25679	4,4	0	31	0	1	0	0	0	0	0	0
+       346	       852	   8336188	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       347	       852	   8335957	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       348	       460	     25669	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	25669	6	0	35	0	1	0	0	0	0	0	0
+       349	       852	   8335946	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       350	       852	   8336070	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       351	       463	     21810	    0	      0	                        _mm256_fnmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	21810	6	0	36	0	1	0	0	0	0	0	0
+       352	       852	   8336266	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       353	       852	   8336065	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       354	       466	     21660	    0	      0	                     _mm256_broadcast_sd	/home/asl/Lorenzo/ASL-project-team28/bin	21654	15	0	37	0	1	0	0	0	0	0	0
+       355	       469	     21798	    0	      0	                        _mm256_fnmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	21785,21798	4,6	0	38	0	1	0	0	0	0	0	0
+       356	       852	   8336357	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       357	       852	   8336097	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       358	       852	   8336013	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       359	       852	   8335951	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       360	       852	   8336413	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       361	       472	     21816	    0	      0	                        _mm256_storeu_pd	/home/asl/Lorenzo/ASL-project-team28/bin	21816	4	0	39	0	1	0	0	0	0	0	0
+       362	       852	   8336007	    1	      0	[Loop@0x7f3240 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335936	494	8336430	96	0	0	0	0	0	0	0	0
+       363	       475	     25683	    0	      0	                         _mm256_store_pd	/home/asl/Lorenzo/ASL-project-team28/bin	25683	5	0	40	0	1	0	0	0	0	0	0
+       364	       483	     23653	    0	      0	                           _mm256_sub_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23653,23679	4,4	0	41	0	1	0	0	0	0	0	0
+       365	       490	     23675	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       366	       493	     23683	    0	      0	                         _mm256_store_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23683	5	0	46	0	1	0	0	0	0	0	0
+       367	       496	     23669	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23669	6	0	47	0	1	0	0	0	0	0	0
+       368	       499	     23657	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23657	6	0	48	0	1	0	0	0	0	0	0
+       369	       502	     23663	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23663	6	0	49	0	1	0	0	0	0	0	0
+       370	       483	     23679	    0	      0	                           _mm256_sub_pd	/home/asl/Lorenzo/ASL-project-team28/bin	23653,23679	4,4	0	41	0	1	0	0	0	0	0	0
+       371	       490	     23688	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       372	       511	     24227	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       373	       517	     24221	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24221	6	0	53	0	1	0	0	0	0	0	0
+       374	       520	     24205	    0	      0	                           _mm256_sub_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24205,24231	4,4	0	54	0	1	0	0	0	0	0	0
+       375	       523	     24235	    0	      0	                         _mm256_store_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24235	5	0	55	0	1	0	0	0	0	0	0
+       376	       526	     24215	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24215	6	0	56	0	1	0	0	0	0	0	0
+       377	       511	     24240	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       378	       531	     24133	    0	      0	                     _mm256_broadcast_sd	/home/asl/Lorenzo/ASL-project-team28/bin	24133	6	0	57	0	1	0	0	0	0	0	0
+       379	       534	     24209	    0	      0	                         _mm256_fmadd_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24209	6	0	58	0	1	0	0	0	0	0	0
+       380	       520	     24231	    0	      0	                           _mm256_sub_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24205,24231	4,4	0	54	0	1	0	0	0	0	0	0
+       381	       539	     24200	    0	      0	                           _mm256_mul_pd	/home/asl/Lorenzo/ASL-project-team28/bin	24200	5	0	59	0	1	0	0	0	0	0	0
+       382	        -1	     18288	    0	      0	                             func@0x4590	/usr/bin/dash	17808	528	0	6	0	0	0	0	0	0	0	0
+       383	        -1	     18288	    0	      0	                             func@0x4590	/usr/bin/dash	17808	528	0	6	0	0	0	0	0	0	0	0
+       384	        -1	     24928	    0	      0	                             func@0x4760	/usr/bin/ls	18272	6704	0	24	0	0	0	0	0	0	0	0
+       385	        -1	     10752	    0	      0	                             func@0x2620	/usr/bin/mkdir	9760	1040	0	75	0	0	0	0	0	0	0	0
+       386	        38	    670752	    0	      1	                         getOpenFileImpl	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670432	518	0	67	0	0	0	0	0	0	0	0
+       387	        38	    670765	    0	      1	                         getOpenFileImpl	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670432	518	0	67	0	0	0	0	0	0	0	0
+       388	        46	    342164	    0	      1	                            operator new	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	342128	107	0	69	0	0	0	0	0	0	0	0
+       389	        46	    342172	    0	      1	                            operator new	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	342128	107	0	69	0	0	0	0	0	0	0	0
+       390	        80	    670752	    0	      1	                         getOpenFileImpl	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670432	518	0	67	0	0	0	0	0	0	0	0
+       391	        80	    670765	    0	      1	                         getOpenFileImpl	/opt/intel/oneapi/advisor/2023.0.0/lib64/pinruntime/libpin3dwarf.so	670432	518	0	67	0	0	0	0	0	0	0	0
+       392	         2	    146561	    0	      1	                       __libc_start_main	/lib/x86_64-linux-gnu/libc.so.6	146464	476	0	93	0	0	0	0	0	0	0	0
+       393	         2	    146697	    0	      1	                       __libc_start_main	/lib/x86_64-linux-gnu/libc.so.6	146464	476	0	93	0	0	0	0	0	0	0	0
+       394	       319	     40736	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       395	       394	     40744	    1	      0	      [Loop at line 10 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40736,40744,41104,41184	4,358,71,25	41209	15	0	0	0	0	0	0	0	0
+       396	       395	     40696	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       397	       396	     40696	    0	      0	std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40696,40725,40780,41039,41104	19,11,255,26,105	0	14	0	1	0	0	0	0	0	0
+       398	       397	     40780	    0	      0	std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40696,40725,40780,41039,41104	19,11,255,26,105	0	13	0	1	0	0	0	0	0	0
+       399	       398	     40780	    0	      0	std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>, double>::operator()	/home/asl/Lorenzo/ASL-project-team28/bin	40780,41039,41104	249,19,105	0	12	0	1	0	0	0	0	0	0
+       400	       399	     40780	    0	      0	std::generate_canonical<double, (unsigned long)53, std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40780,41039,41104	249,19,105	0	11	0	1	0	0	0	0	0	0
+       401	       395	     40889	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       402	       319	     40889	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       403	       319	     40736	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       404	       403	     40744	    1	      0	      [Loop at line 10 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40736,40744,41104,41184	4,358,71,25	41209	15	0	0	0	0	0	0	0	0
+       405	       319	     41065	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       406	       395	     41013	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       407	       319	     41013	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       408	       319	     40772	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       409	       324	     40736	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       410	       409	     40744	    1	      0	      [Loop at line 10 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40736,40744,41104,41184	4,358,71,25	41209	15	0	0	0	0	0	0	0	0
+       411	       410	     40696	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       412	       411	     40696	    0	      0	std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40696,40725,40780,41039,41104	19,11,255,26,105	0	14	0	1	0	0	0	0	0	0
+       413	       412	     40780	    0	      0	std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40696,40725,40780,41039,41104	19,11,255,26,105	0	13	0	1	0	0	0	0	0	0
+       414	       413	     40780	    0	      0	std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>, double>::operator()	/home/asl/Lorenzo/ASL-project-team28/bin	40780,41039,41104	249,19,105	0	12	0	1	0	0	0	0	0	0
+       415	       414	     40780	    0	      0	std::generate_canonical<double, (unsigned long)53, std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>>	/home/asl/Lorenzo/ASL-project-team28/bin	40780,41039,41104	249,19,105	0	11	0	1	0	0	0	0	0	0
+       416	       410	     41191	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       417	       324	     41191	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       418	       325	     40000	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/home/asl/Lorenzo/ASL-project-team28/bin	39952	405	0	17	0	0	0	0	0	0	0	0
+       419	       325	     40005	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/home/asl/Lorenzo/ASL-project-team28/bin	39952	405	0	17	0	0	0	0	0	0	0	0
+       420	       410	     41058	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       421	       324	     41058	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       422	       410	     40947	    1	      0	      [Loop at line 11 in rands<double>]	/home/asl/Lorenzo/ASL-project-team28/bin	40744,41104,41184	336,71,25	41080	8	0	0	0	0	0	0	0	0
+       423	       324	     40947	    0	      0	                           rands<double>	/home/asl/Lorenzo/ASL-project-team28/bin	40368	918	0	9	0	0	0	0	0	0	0	0
+       424	         3	     36208	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       425	         3	     36356	    0	      0	                       benchmark_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	33680	4495	0	3	0	0	0	0	0	0	0	0
+       426	       329	     20972	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       427	       426	     21184	    1	      0	      [Loop at line 223 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	20972,21280,24524	300,1847,1511	23127	26	0	0	0	0	0	0	0	0
+       428	       427	     20657	    1	      0	       [Loop at line 35 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	21184,21280,24524	88,1744,829	23024	25	0	0	0	0	0	0	0	0
+       429	       428	     20744	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       430	       429	     21648	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       431	       430	     21681	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       432	       430	     21681	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       433	       329	     21681	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       434	       430	     21776	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       435	       434	     21789	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       436	       434	     21804	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       437	       329	     21804	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       438	       329	     20972	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       439	       438	     21184	    1	      0	      [Loop at line 223 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	20972,21280,24524	300,1847,1511	23127	26	0	0	0	0	0	0	0	0
+       440	       439	     20657	    1	      0	       [Loop at line 35 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	21184,21280,24524	88,1744,829	23024	25	0	0	0	0	0	0	0	0
+       441	       440	     20744	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       442	       441	     21368	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       443	       441	     21372	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       444	       329	     21372	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       445	       426	     20657	    1	      0	      [Loop at line 223 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	20972,21280,24524	300,1847,1511	23127	26	0	0	0	0	0	0	0	0
+       446	       426	     26006	    1	      0	      [Loop at line 223 in mexp_no_blas]	/home/asl/Lorenzo/ASL-project-team28/bin	20972,21280,24524	300,1847,1511	23127	26	0	0	0	0	0	0	0	0
+       447	       329	     26006	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       448	       441	     21648	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       449	       441	     21704	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       450	       329	     21704	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       451	       441	     21280	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       452	       441	     21286	    0	      0	                         luDecomposition	/home/asl/Lorenzo/ASL-project-team28/bin	20744,20753,20795,20972,24524	3,9,152,2055,829	0	22	0	1	0	0	0	0	0	0
+       453	       329	     21286	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       454	       445	     25481	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       455	       454	     25576	    1	      0	      [Loop at line 227 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25481,26024	402,11	25883	34	0	0	0	0	0	0	0	0
+       456	       455	     25648	    1	      0	      [Loop at line 229 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25576	133	25709	33	0	0	0	0	0	0	0	0
+       457	       456	     25653	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       458	       456	     25653	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       459	       329	     25653	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       460	       456	     25669	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       461	       456	     25669	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       462	       329	     25669	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       463	       434	     21810	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       464	       434	     21810	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       465	       329	     21810	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       466	       430	     21654	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       467	       430	     21660	    1	      0	    [Loop at line 83 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21648	807	22455	20	0	0	0	0	0	0	0	0
+       468	       329	     21660	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       469	       434	     21785	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       470	       434	     21798	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       471	       329	     21798	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       472	       434	     21816	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       473	       434	     21816	    1	      0	    [Loop at line 89 in luDecomposition]	/home/asl/Lorenzo/ASL-project-team28/bin	21776	68	21844	28	0	0	0	0	0	0	0	0
+       474	       329	     21816	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       475	       456	     25683	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       476	       456	     25683	    1	      0	      [Loop at line 234 in solve_system]	/home/asl/Lorenzo/ASL-project-team28/bin	25648	45	25693	32	0	0	0	0	0	0	0	0
+       477	       329	     25683	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       478	       329	     20657	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       479	       478	     20698	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       480	       479	     23520	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       481	       480	     23616	    1	      0	         [Loop at line 136 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23520	346	23866	44	0	0	0	0	0	0	0	0
+       482	       481	     23648	    1	      0	         [Loop at line 138 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23616	95	23711	43	0	0	0	0	0	0	0	0
+       483	       482	     23653	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       484	       482	     23653	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       485	       329	     23653	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       486	       329	     20657	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       487	       486	     20698	    0	      0	                            solve_system	/home/asl/Lorenzo/ASL-project-team28/bin	20657,20668,20678,24524	8,7,3823,1841	0	23	0	1	0	0	0	0	0	0
+       488	       487	     23520	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       489	       488	     23616	    1	      0	         [Loop at line 136 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23520	346	23866	44	0	0	0	0	0	0	0	0
+       490	       489	     23648	    1	      0	         [Loop at line 138 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23616	95	23711	43	0	0	0	0	0	0	0	0
+       491	       487	     23675	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       492	       329	     23675	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       493	       482	     23683	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       494	       482	     23683	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       495	       329	     23683	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       496	       482	     23669	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       497	       482	     23669	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       498	       329	     23669	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       499	       482	     23657	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       500	       482	     23657	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       501	       329	     23657	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       502	       482	     23663	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       503	       482	     23663	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       504	       329	     23663	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       505	       482	     23679	    1	      0	         [Loop at line 143 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	23648	45	23693	42	0	0	0	0	0	0	0	0
+       506	       329	     23679	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       507	       487	     23688	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       508	       329	     23688	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       509	       487	     24032	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       510	       509	     24128	    1	      0	         [Loop at line 170 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24032	454	24486	52	0	0	0	0	0	0	0	0
+       511	       510	     24200	    1	      0	         [Loop at line 172 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24128	133	24261	51	0	0	0	0	0	0	0	0
+       512	       487	     24227	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       513	       329	     24227	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       514	       479	     24032	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       515	       514	     24128	    1	      0	         [Loop at line 170 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24032	454	24486	52	0	0	0	0	0	0	0	0
+       516	       515	     24200	    1	      0	         [Loop at line 172 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24128	133	24261	51	0	0	0	0	0	0	0	0
+       517	       516	     24221	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       518	       516	     24221	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       519	       329	     24221	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       520	       516	     24205	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       521	       516	     24205	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       522	       329	     24205	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       523	       516	     24235	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       524	       516	     24235	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       525	       329	     24235	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       526	       516	     24215	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       527	       516	     24215	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       528	       329	     24215	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       529	       487	     24240	    0	      0	                               last_part	/home/asl/Lorenzo/ASL-project-team28/bin	20698,20723,20736,23520,26343	9,3,8,969,22	0	45	0	1	0	0	0	0	0	0
+       530	       329	     24240	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       531	       515	     24133	    1	      0	         [Loop at line 172 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24128	133	24261	51	0	0	0	0	0	0	0	0
+       532	       515	     24133	    1	      0	         [Loop at line 172 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24128	133	24261	51	0	0	0	0	0	0	0	0
+       533	       329	     24133	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       534	       516	     24209	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       535	       516	     24209	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       536	       329	     24209	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       537	       516	     24231	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       538	       329	     24231	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       539	       516	     24200	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       540	       516	     24200	    1	      0	         [Loop at line 177 in last_part]	/home/asl/Lorenzo/ASL-project-team28/bin	24200	45	24245	50	0	0	0	0	0	0	0	0
+       541	       329	     24200	    0	      0	                            mexp_no_blas	/home/asl/Lorenzo/ASL-project-team28/bin	20608	5757	0	21	0	0	0	0	0	0	0	0
+       542	        21	   8629232	    0	      1	                           func@0x838d00	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8621312	13184	0	127	0	0	0	0	0	0	0	0
+       543	        21	   8629786	    0	      1	                           func@0x838d00	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8621312	13184	0	127	0	0	0	0	0	0	0	0
+       544	        25	   8794904	    0	      1	  LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794576	4349	0	132	0	0	0	0	0	0	0	0
+       545	        25	   8795185	    0	      1	  LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794576	4349	0	132	0	0	0	0	0	0	0	0
+       546	        26	   8789608	    0	      1	std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789552	690	0	134	0	0	0	0	0	0	0	0
+       547	        26	   8789608	    0	      1	std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789552	690	0	134	0	0	0	0	0	0	0	0
+       548	        28	   8794904	    0	      1	  LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794576	4349	0	132	0	0	0	0	0	0	0	0
+       549	        28	   8795185	    0	      1	  LEVEL_PINCLIENT::CookSymSec<Elf64_Sym>	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8794576	4349	0	132	0	0	0	0	0	0	0	0
+       550	        29	   8789608	    0	      1	std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789552	690	0	134	0	0	0	0	0	0	0	0
+       551	        29	   8789621	    0	      1	std::priv::_Rb_tree<std::pair<std::string, unsigned long>, std::less<std::pair<std::string, unsigned long>>, std::pair<std::string, unsigned long>, std::priv::_Identity<std::pair<std::string, unsigned long>>, std::priv::_SetTraitsT<std::pair<std::string, unsigned long>>, std::allocator<std::pair<std::string, unsigned long>>>::insert_unique	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8789552	690	0	134	0	0	0	0	0	0	0	0
+       552	        24	   8782480	    0	      1	          LEVEL_PINCLIENT::ElfCookRegsym	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8781600	2851	0	130	0	0	0	0	0	0	0	0
+       553	       552	   8782616	    1	      1	[Loop@0x860290 in LEVEL_PINCLIENT::ElfCookRegsym]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8782480,8783272,8784438	227,72,13	0	136	0	0	0	0	0	0	0	0
+       554	        24	   8782621	    0	      1	          LEVEL_PINCLIENT::ElfCookRegsym	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8781600	2851	0	130	0	0	0	0	0	0	0	0
+       555	        44	   8325120	    0	      1	                           func@0x7f0760	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8324960	5360	0	139	0	0	0	0	0	0	0	0
+       556	       555	   8326052	    1	      1	        [Loop@0x7f0800 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8325120,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8328184,8328216,8328248,8328280,8328312,8328568,8328808,8329072,8329120,8329184,8329232,8329248,8329264,8329870,8329919,8330179	1913,301,103,494,13,40,13,70,18,9,25,25,25,25,252,235,260,44,54,41,15,15,493,31,25,137	0	142	0	0	0	0	0	0	0	0
+       557	       556	   8326816	    1	      1	        [Loop@0x7f0ba4 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8326052,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8328880,8329279,8329369,8329461,8329529,8329870,8329919,8330179	981,301,103,494,13,40,13,70,18,9,144,23,53,51,228,19,25,137	0	141	0	0	0	0	0	0	0	0
+       558	       557	   8327719	    1	      1	        [Loop@0x7f0ea0 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8326816,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8329279,8329369,8329870,8330304	115,296,103,494,13,40,13,70,18,9,23,53,14,12	0	140	0	0	0	0	0	0	0	0
+       559	        44	   8327835	    0	      1	                           func@0x7f0760	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8324960	5360	0	139	0	0	0	0	0	0	0	0
+       560	        44	   8326941	    0	      1	                           func@0x7f0760	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8324960	5360	0	139	0	0	0	0	0	0	0	0
+       561	        50	   8303072	    0	      1	                           func@0x7eb180	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302976	5296	0	145	0	0	0	0	0	0	0	0
+       562	       561	   8303160	    1	      1	        [Loop@0x7eb1e0 in func@0x7eb180]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8303072,8303160,8305768,8305800,8305832,8305864,8305896,8305928,8305960,8305992,8306224,8306488,8306720,8306960,8307232,8307280,8307344,8307392,8307440,8307496,8307552,8307600,8307648,8307672,8307696,8307712,8307736,8307760,8307800,8307840,8307872,8307912,8307968,8308040,8308064,8308088,8308120,8308144,8308255	82,2601,25,25,25,25,25,25,25,231,257,225,234,270,41,54,44,41,51,54,44,44,17,16,15,17,15,36,36,26,37,37,68,17,17,27,17,12,8	0	146	0	0	0	0	0	0	0	0
+       563	        50	   8307399	    0	      1	                           func@0x7eb180	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302976	5296	0	145	0	0	0	0	0	0	0	0
+       564	        50	   8307607	    0	      1	                           func@0x7eb180	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302976	5296	0	145	0	0	0	0	0	0	0	0
+       565	        72	   8629232	    0	      1	                           func@0x838d00	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8621312	13184	0	127	0	0	0	0	0	0	0	0
+       566	        72	   8629786	    0	      1	                           func@0x838d00	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8621312	13184	0	127	0	0	0	0	0	0	0	0
+       567	        86	   8325120	    0	      1	                           func@0x7f0760	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8324960	5360	0	139	0	0	0	0	0	0	0	0
+       568	       567	   8326052	    1	      1	        [Loop@0x7f0800 in func@0x7f0760]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8325120,8327072,8327376,8327488,8327984,8328000,8328048,8328064,8328144,8328168,8328184,8328216,8328248,8328280,8328312,8328568,8328808,8329072,8329120,8329184,8329232,8329248,8329264,8329870,8329919,8330179	1913,301,103,494,13,40,13,70,18,9,25,25,25,25,252,235,260,44,54,41,15,15,493,31,25,137	0	142	0	0	0	0	0	0	0	0
+       569	        86	   8326941	    0	      1	                           func@0x7f0760	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8324960	5360	0	139	0	0	0	0	0	0	0	0
+       570	        87	   8303072	    0	      1	                           func@0x7eb180	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302976	5296	0	145	0	0	0	0	0	0	0	0
+       571	       570	   8303160	    1	      1	        [Loop@0x7eb1e0 in func@0x7eb180]	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8303072,8303160,8305768,8305800,8305832,8305864,8305896,8305928,8305960,8305992,8306224,8306488,8306720,8306960,8307232,8307280,8307344,8307392,8307440,8307496,8307552,8307600,8307648,8307672,8307696,8307712,8307736,8307760,8307800,8307840,8307872,8307912,8307968,8308040,8308064,8308088,8308120,8308144,8308255	82,2601,25,25,25,25,25,25,25,231,257,225,234,270,41,54,44,41,51,54,44,44,17,16,15,17,15,36,36,26,37,37,68,17,17,27,17,12,8	0	146	0	0	0	0	0	0	0	0
+       572	        87	   8304599	    0	      1	                           func@0x7eb180	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302976	5296	0	145	0	0	0	0	0	0	0	0
+       573	        88	   8302560	    0	      1	                           func@0x7eafb0	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302512	464	0	148	0	0	0	0	0	0	0	0
+       574	        88	   8302704	    0	      1	                           func@0x7eafb0	/opt/intel/oneapi/advisor/2023.0.0/lib64/libtpsstool.so	8302512	464	0	148	0	0	0	0	0	0	0	0
+       575	        90	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       576	       575	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       577	       576	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       578	       577	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       579	       578	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       580	        90	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       581	        92	   8320336	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       582	       581	   8320384	    1	      0	[Loop@0x7ef550 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320336	2513	8322849	89	0	0	0	0	0	0	0	0
+       583	        92	   8321781	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       584	       582	   8320528	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       585	        92	   8320538	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       586	       582	   8321088	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       587	        92	   8321228	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       588	        92	   8321243	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       589	        97	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       590	       589	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       591	       590	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       592	        97	   8336352	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       593	       590	   8335376	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       594	        97	   8335470	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       595	        97	   8336357	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       596	        97	   8336679	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       597	        97	   8335644	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       598	        97	   8336266	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       599	        97	   8336130	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       600	        97	   8335236	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       601	        97	   8336586	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       602	        97	   8336030	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       603	        97	   8335544	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       604	        97	   8336225	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       605	        97	   8336367	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       606	        90	   5326337	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       607	       112	   8281952	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       608	       607	   8281984	    1	      0	[Loop@0x7e5f60 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281952	782	8282734	104	0	0	0	0	0	0	0	0
+       609	       112	   8282123	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       610	        97	   8336039	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       611	        97	   8335838	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       612	        97	   8336065	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       613	        97	   8335714	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       614	        97	   8335743	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       615	        97	   8335853	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       616	        97	   8335246	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       617	        97	   8335986	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       618	        97	   8336174	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       619	        97	   8335957	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       620	        97	   8336385	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       621	        97	   8336193	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       622	        97	   8336406	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       623	        97	   8336049	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       624	        97	   8336091	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       625	        97	   8336104	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       626	        90	   5325934	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       627	       131	   8307552	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       628	       627	   8307584	    1	      0	[Loop@0x7ec360 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307552	526	8308078	108	0	0	0	0	0	0	0	0
+       629	       131	   8307742	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       630	       137	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       631	       630	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       632	       631	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       633	       632	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       634	       633	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       635	       137	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       636	       139	   8320336	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       637	       636	   8320384	    1	      0	[Loop@0x7ef550 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320336	2513	8322849	89	0	0	0	0	0	0	0	0
+       638	       637	   8321088	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       639	       139	   8321271	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       640	       139	   8321405	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       641	       139	   8321128	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       642	       139	   8321182	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       643	       137	   5325934	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       644	       145	   8307552	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       645	       644	   8307584	    1	      0	[Loop@0x7ec360 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307552	526	8308078	108	0	0	0	0	0	0	0	0
+       646	       145	   8307590	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       647	       147	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       648	       647	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       649	       648	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       650	       147	   8335941	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       651	       147	   8336220	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       652	       147	   8336241	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       653	       147	   8336150	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       654	       147	   8335946	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       655	       147	   8336406	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       656	       147	   8336174	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       657	       147	   8336114	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       658	       147	   8336225	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       659	       147	   8336266	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       660	       147	   8336326	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       661	       147	   8336209	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       662	       147	   8336125	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       663	       147	   8336140	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       664	       147	   8336130	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       665	       147	   8338000	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       666	       665	   8338112	    1	      0	[Loop@0x7f3a50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8338000	775	8338775	110	0	0	0	0	0	0	0	0
+       667	       147	   8338220	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       668	       147	   8336091	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       669	       147	   8336380	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       670	       147	   8336279	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       671	       648	   8335376	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       672	       147	   8335565	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       673	       147	   8336076	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       674	       147	   8336235	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       675	       147	   8336039	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       676	       147	   8335957	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       677	       137	   5326337	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       678	       173	   8281952	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       679	       678	   8281984	    1	      0	[Loop@0x7e5f60 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281952	782	8282734	104	0	0	0	0	0	0	0	0
+       680	       173	   8281990	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       681	       147	   8336030	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       682	       147	   8335797	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       683	       147	   8335544	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       684	       147	   8335644	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       685	       183	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       686	       685	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       687	       686	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       688	       687	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       689	       688	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       690	       183	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       691	       185	   8320336	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       692	       691	   8320384	    1	      0	[Loop@0x7ef550 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320336	2513	8322849	89	0	0	0	0	0	0	0	0
+       693	       185	   8321788	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       694	       692	   8320528	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       695	       185	   8320845	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       696	       692	   8321088	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       697	       185	   8321271	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       698	       185	   8321015	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       699	       190	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       700	       699	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       701	       700	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       702	       190	   8336060	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       703	       190	   8336065	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       704	       190	   8336135	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       705	       190	   8336209	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       706	       190	   8336214	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       707	       190	   8336393	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       708	       190	   8336385	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       709	       700	   8335376	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       710	       190	   8335575	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       711	       190	   8336308	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       712	       190	   8335787	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       713	       190	   8336342	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       714	       190	   8335863	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       715	       190	   8336287	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       716	       190	   8336225	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       717	       190	   8335812	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       718	       190	   8336039	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       719	       190	   8336125	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       720	       190	   8335621	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       721	       190	   8336754	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       722	       190	   8335941	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       723	       190	   8335986	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       724	       190	   8336070	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       725	       190	   8335820	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       726	       190	   8336035	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       727	       190	   8335549	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       728	       190	   8335743	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       729	       190	   8336145	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       730	       190	   8336114	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       731	       190	   8336193	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       732	       190	   8336097	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       733	       190	   8336731	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       734	       190	   8335964	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       735	       190	   8336188	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       736	       190	   8336326	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       737	       229	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       738	       737	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       739	       738	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       740	       739	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       741	       740	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       742	       229	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       743	       231	   8320336	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       744	       743	   8320384	    1	      0	[Loop@0x7ef550 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320336	2513	8322849	89	0	0	0	0	0	0	0	0
+       745	       744	   8321088	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       746	       231	   8321405	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       747	       231	   8321788	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       748	       231	   8321537	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       749	       231	   8321366	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       750	       229	   5325934	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       751	       237	   8307552	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       752	       751	   8307584	    1	      0	[Loop@0x7ec360 in [MKL BLAS]@avx2_dgemm_dcopy_right4_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307552	526	8308078	108	0	0	0	0	0	0	0	0
+       753	       237	   8307597	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       754	       239	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       755	       754	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       756	       755	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       757	       239	   8336209	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       758	       239	   8336070	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       759	       755	   8335376	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       760	       239	   8335719	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       761	       239	   8335986	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       762	       239	   8335644	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       763	       239	   8336174	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       764	       239	   8336419	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       765	       239	   8336049	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       766	       239	   8335570	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       767	       239	   8336097	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       768	       239	   8336055	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       769	       239	   8335575	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       770	       239	   8336380	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       771	       237	   8307590	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_right4_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8307456	3780	0	107	0	0	0	0	0	0	0	0
+       772	       239	   8336188	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       773	       239	   8336119	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       774	       239	   8336007	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       775	       239	   8336735	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       776	       239	   8336114	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       777	       239	   8336347	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       778	       239	   8336220	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       779	       239	   8336261	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       780	       239	   8335853	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       781	       239	   8335447	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       782	       239	   8336204	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       783	       239	   8336675	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       784	       239	   8335803	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       785	       239	   8336104	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       786	       239	   8335771	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       787	       239	   8336044	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       788	       239	   8335971	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       789	       239	   8336326	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       790	       276	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       791	       790	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       792	       791	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       793	       792	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       794	       793	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       795	       276	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       796	       278	   8320336	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       797	       796	   8320384	    1	      0	[Loop@0x7ef550 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320336	2513	8322849	89	0	0	0	0	0	0	0	0
+       798	       797	   8321088	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       799	       278	   8321261	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       800	       797	   8320528	    1	      0	[Loop@0x7ef580 in [MKL BLAS]@avx2_dgemm_kernel_0_b0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320384	1444	8321828	86	0	0	0	0	0	0	0	0
+       801	       278	   8320573	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       802	       278	   8320652	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       803	       278	   8321413	    0	      0	       [MKL BLAS]@avx2_dgemm_kernel_0_b0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8320256	7077	0	88	0	0	0	0	0	0	0	0
+       804	       276	   5326337	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       805	       284	   8281952	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       806	       805	   8281984	    1	      0	[Loop@0x7e5f60 in [MKL BLAS]@avx2_dgemm_dcopy_down12_ea]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281952	782	8282734	104	0	0	0	0	0	0	0	0
+       807	       284	   8282184	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       808	       286	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       809	       808	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       810	       809	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       811	       286	   8336253	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       812	       286	   8336372	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       813	       809	   8335376	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       814	       286	   8335633	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       815	       286	   8336055	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       816	       286	   8336035	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       817	       286	   8336086	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       818	       286	   8335946	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       819	       286	   8336174	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       820	       286	   8335565	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       821	       286	   8335941	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       822	       286	   8336321	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       823	       286	   8335771	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       824	       286	   8336230	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       825	       286	   8336070	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       826	       284	   8282014	    0	      0	   [MKL BLAS]@avx2_dgemm_dcopy_down12_ea	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8281856	8388	0	103	0	0	0	0	0	0	0	0
+       827	       286	   8336060	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       828	       286	   8336419	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       829	       286	   8335964	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       830	       286	   8335693	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       831	       286	   8336130	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       832	       286	   8336164	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       833	       286	   8335706	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       834	       286	   8336287	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       835	       286	   8335766	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       836	       286	   8335381	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       837	       286	   8336235	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       838	       286	   8335986	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       839	       286	   8336367	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       840	       286	   8335665	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       841	       286	   8336135	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       842	       286	   8336020	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       843	       286	   8336261	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       844	       337	   5325584	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       845	       844	   5325659	    1	      0	[Loop@0x514310 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325584	1175	5326759	83	0	0	0	0	0	0	0	0
+       846	       845	   5325679	    1	      0	[Loop@0x51435b in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325659	1067	5326726	82	0	0	0	0	0	0	0	0
+       847	       846	   5325746	    1	      0	[Loop@0x51436f in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325679	1047	5326726,5325659	81	0	0	0	0	0	0	0	0
+       848	       847	   5326003	    1	      0	[Loop@0x5143b2 in [MKL BLAS]@avx2_d_generic_fullacopybcopy]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5325746	914	5326660	80	0	0	0	0	0	0	0	0
+       849	       337	   5326593	    0	      0	[MKL BLAS]@avx2_d_generic_fullacopybcopy	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	5321792	5104	0	79	0	0	0	0	0	0	0	0
+       850	       339	   8335184	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       851	       850	   8335232	    1	      0	[Loop@0x7f2f50 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335184	2737	8337921	99	0	0	0	0	0	0	0	0
+       852	       851	   8335936	    1	      0	[Loop@0x7f2f80 in [MKL BLAS]@avx2_dgemm_kernel_0]	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335232	1574	8336806	98	0	0	0	0	0	0	0	0
+       853	       339	   8336174	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       854	       339	   8336109	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       855	       339	   8336303	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       856	       339	   8336188	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       857	       339	   8335957	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       858	       339	   8335946	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       859	       339	   8336070	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       860	       339	   8336266	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       861	       339	   8336065	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       862	       339	   8336357	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       863	       339	   8336097	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       864	       339	   8336013	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       865	       339	   8335951	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       866	       339	   8336413	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       867	       339	   8336007	    0	      0	          [MKL BLAS]@avx2_dgemm_kernel_0	/opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_avx2.so.2	8335104	7733	0	97	0	0	0	0	0	0	0	0
+       868	        16	     80048	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	79968	783	0	5	0	0	0	0	0	0	0	0
+       869	        16	     80121	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	79968	783	0	5	0	0	0	0	0	0	0	0
+       870	        67	     80048	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	79968	783	0	5	0	0	0	0	0	0	0	0
+       871	        67	     80121	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	79968	783	0	5	0	0	0	0	0	0	0	0
+       872	        53	   2087944	    0	      1	ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087552	2034	0	119	0	0	0	0	0	0	0	0
+       873	        53	   2088495	    0	      1	ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087552	2034	0	119	0	0	0	0	0	0	0	0
+       874	        58	   2087648	    0	      1	ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087552	2034	0	119	0	0	0	0	0	0	0	0
+       875	       874	   2087674	    1	      1	[Loop@0x1fdae0 in ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal]	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087648,2087760	104,47	0	122	0	0	0	0	0	0	0	0
+       876	        58	   2087697	    0	      1	ATOMIC::LIFO_PTR<LEVEL_BASE::SWMALLOC::FREE_LIST_ELEMENT, (unsigned int)3, LEVEL_BASE::ATOMIC_STATS>::PopInternal	/opt/intel/oneapi/advisor/2023.0.0/bin64/pinbin	2087552	2034	0	119	0	0	0	0	0	0	0	0
+       877	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	150	0	0	0	0	0	0	0	0

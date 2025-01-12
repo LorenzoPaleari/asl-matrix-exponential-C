@@ -1,0 +1,4375 @@
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 4 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.00043845176696777344
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 9.66801e-15 - Error test base: 2.88262e-15
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.001346588134765625
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 73.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 74.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 5 - Error: 8.9267e-16 - Error test base: 2.43455e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0007109642028808594
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 2.20783e-16 - Error test base: 4.66098e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0003046989440917969
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 1.000000
+Flops N^2: 20.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 2.000000
+Flops N^2: 50.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 2.22573e-16 - Error test base: 1.53019e-16
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.00047969818115234375
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 2.18911e-16 - Error test base: 2.18911e-16
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0008280277252197266
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 2.22036e-16 - Error test base: 2.22035e-16
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 8 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0003867149353027344
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 1.61661e-15 - Error test base: 5.51946e-16
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.000997304916381836
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 73.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 74.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 5 - Error: 2.88653e-15 - Error test base: 4.36801e-17
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005307197570800781
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 35.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 2.76061e-16 - Error test base: 2.17228e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005280971527099609
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 1.000000
+Flops N^2: 20.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 2.000000
+Flops N^2: 50.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 3.74972e-16 - Error test base: 1.83834e-16
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005168914794921875
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 3.22196e-16 - Error test base: 6.4356e-16
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0013699531555175781
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 2.2204e-16 - Error test base: 4.44073e-16
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 16 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0012171268463134766
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 1.06744e-15 - Error test base: 4.11796e-16
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.004552602767944336
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 80.000000
+Flops N: 21.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 80.000000
+Flops N: 21.000000
+Flops N^2: 313.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 73.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 80.000000
+Flops N: 21.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 74.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 5 - Error: 1.51677e-15 - Error test base: 4.82303e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.004857301712036133
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 3.63056e-16 - Error test base: 3.24397e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.001356363296508789
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 1.000000
+Flops N^2: 20.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 2.000000
+Flops N^2: 50.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 5.76087e-16 - Error test base: 4.14106e-16
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0003514289855957031
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 3.23449e-16 - Error test base: 4.32726e-16
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005285739898681641
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 4.44074e-16 - Error test base: 4.44077e-16
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 32 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0008494853973388672
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 1.32824e-15 - Error test base: 8.99829e-16
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0007369518280029297
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 73.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 101.000000
+Flops N: 27.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 74.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 5 - Error: 2.85763e-15 - Error test base: 1.97368e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0008053779602050781
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 4.13677e-16 - Error test base: 4.2917e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0019223690032958984
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 1.000000
+Flops N^2: 20.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 2.000000
+Flops N^2: 50.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 5.87773e-16 - Error test base: 6.2776e-16
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005276203155517578
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 6.44763e-16 - Error test base: 8.55949e-16
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0007741451263427734
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 8.88155e-16 - Error test base: 6.66115e-16
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 64 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.00077056884765625
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 1.98887e-15 - Error test base: 1.01486e-15
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0008790493011474609
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 50.000000
+Flops N^2: 37.500000
+Flops N^3: 20.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 51.000000
+Flops N^2: 91.500000
+Flops N^3: 20.000000
+✅
+  Return value: 5 - Error: 4.8744e-15 - Error test base: 3.73882e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0007245540618896484
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 5.24791e-16 - Error test base: 4.74889e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0008087158203125
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 1.000000
+Flops N^2: 20.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 27.000000
+Flops N: 2.000000
+Flops N^2: 50.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 9.45178e-16 - Error test base: 1.0959e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.004637956619262695
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 8.6191e-16 - Error test base: 1.39699e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0005896091461181641
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 1.33223e-15 - Error test base: 1.11018e-15
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 128 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.002763032913208008
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 2.66306e-15 - Error test base: 2.27609e-15
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.002826690673828125
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 27.000000
+Flops N^2: 37.500000
+Flops N^3: 18.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 51.000000
+Flops N^2: 91.500000
+Flops N^3: 20.000000
+✅
+  Return value: 5 - Error: 6.8885e-16 - Error test base: 1.24739e-15
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0019788742065429688
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 6.59305e-16 - Error test base: 7.79581e-16
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0014562606811523438
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 2.000000
+Flops N^2: 23.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 4.000000
+Flops N^2: 75.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 1.65487e-15 - Error test base: 1.55801e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.001505136489868164
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 2.05166e-15 - Error test base: 2.99133e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0014052391052246094
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 1.55428e-15 - Error test base: 2.66443e-15
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 256 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.008968591690063477
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 33.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 4.43478e-15 - Error test base: 5.25808e-15
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.014055013656616211
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 25.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 313.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 27.000000
+Flops N^2: 37.500000
+Flops N^3: 18.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 25.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 28.000000
+Flops N^2: 91.500000
+Flops N^3: 18.000000
+✅
+  Return value: 5 - Error: 7.95779e-16 - Error test base: 6.80108e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.006519317626953125
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 289.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 2.000000
+Flops N^2: 40.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 48.000000
+Flops N: 4.000000
+Flops N^2: 132.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 1.46907e-15 - Error test base: 1.12867e-15
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.005053997039794922
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 161.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 225.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 2.000000
+Flops N^2: 23.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 4.000000
+Flops N^2: 75.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 3.61465e-15 - Error test base: 2.5864e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.0043888092041015625
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 161.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 2.1658e-15 - Error test base: 3.4412e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.003991365432739258
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 97.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 2.8865e-15 - Error test base: 3.77462e-15
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 512 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.05160331726074219
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 313.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 8.76442e-15 - Error test base: 1.06609e-14
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.07118391990661621
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 313.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 27.000000
+Flops N^2: 37.500000
+Flops N^3: 18.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 13.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 28.000000
+Flops N^2: 91.500000
+Flops N^3: 18.000000
+✅
+  Return value: 5 - Error: 9.5762e-16 - Error test base: 9.82777e-16
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.04495882987976074
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 169.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 217.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 313.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 3.000000
+Flops N^2: 43.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 6.000000
+Flops N^2: 165.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 1.75311e-15 - Error test base: 1.7114e-15
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.04638266563415527
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 121.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 169.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 2.000000
+Flops N^2: 23.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 4.000000
+Flops N^2: 75.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 4.33725e-15 - Error test base: 3.99151e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.02178049087524414
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 121.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 3.03016e-15 - Error test base: 3.87397e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.020906686782836914
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 52.000000
+Flops N: 20.000000
+Flops N^2: 73.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 3.55263e-15 - Error test base: 5.21787e-15
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 1024 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.46862053871154785
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 148.000000
+Flops N: 32.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 148.000000
+Flops N: 32.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 1.79797e-14 - Error test base: 1.95145e-14
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.35538196563720703
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 27.000000
+Flops N^2: 37.500000
+Flops N^3: 18.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 28.000000
+Flops N^2: 91.500000
+Flops N^3: 18.000000
+✅
+  Return value: 5 - Error: 3.58001e-15 - Error test base: 1.18762e-15
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.3530752658843994
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 3.000000
+Flops N^2: 43.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 6.000000
+Flops N^2: 165.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 2.55507e-15 - Error test base: 2.5346e-15
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.20587539672851562
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 2.000000
+Flops N^2: 23.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 4.000000
+Flops N^2: 75.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 6.91042e-15 - Error test base: 5.52968e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.12178158760070801
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 4.99188e-15 - Error test base: 6.12758e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.11712265014648438
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 6.43915e-15 - Error test base: 6.32806e-15
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/mexp_basic.c -o obj/lu/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/norms.c -o obj/lu/norms.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu/utils.c -o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLA_ -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu/mexp_basic.o obj/lu/norms.o obj/lu/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 2048 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  2.0540289878845215
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 1.000000
+Flops N^2: 37.500000
+Flops N^3: 22.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 2.000000
+Flops N^2: 91.500000
+Flops N^3: 22.000000
+✅
+  Return value: 6 - Error: 2.62694e-14 - Error test base: 3.53805e-14
+
+  Performing test 2/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  2.055591106414795
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 94.000000
+Flops N: 26.000000
+Flops N^2: 417.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 27.000000
+Flops N^2: 37.500000
+Flops N^3: 18.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 39.000000
+Flops N: 28.000000
+Flops N^2: 91.500000
+Flops N^3: 18.000000
+✅
+  Return value: 5 - Error: 1.42184e-15 - Error test base: 1.58575e-15
+
+  Performing test 3/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  1.5754287242889404
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 145.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 209.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 3.000000
+Flops N^2: 43.000000
+Flops N^3: 16.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 57.000000
+Flops N: 6.000000
+Flops N^2: 165.000000
+Flops N^3: 16.000000
+✅
+  Return value: 4 - Error: 3.85773e-15 - Error test base: 3.42972e-15
+
+  Performing test 4/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  1.0756733417510986
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 113.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 2.000000
+Flops N^2: 23.000000
+Flops N^3: 10.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 36.000000
+Flops N: 4.000000
+Flops N^2: 75.000000
+Flops N^3: 10.000000
+✅
+  Return value: 3 - Error: 1.02077e-14 - Error test base: 9.14245e-15
+
+  Performing test 5/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.8103106021881104
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 81.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 1.000000
+Flops N^2: 16.000000
+Flops N^3: 6.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 21.000000
+Flops N: 2.000000
+Flops N^2: 38.000000
+Flops N^3: 6.000000
+✅
+  Return value: 2 - Error: 7.49639e-15 - Error test base: 9.24633e-15
+
+  Performing test 6/6
+
+> Writing matrix to file ... ✅
+> Executing python script ... Time:  0.7812459468841553
+✅
+> Reading matrix from file ... ✅
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 49.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1.000000
+Flops N: 2.000000
+Flops N^2: 6.500000
+Flops N^3: 6.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 1.000000
+Flops N^2: 12.000000
+Flops N^3: 4.000000
+
+> Checks 'mexp' function for validity ... NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 17.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 22.000000
+Flops N: 14.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 4.000000
+✅
+  Return value: 1 - Error: 1.04359e-14 - Error test base: 1.04357e-14

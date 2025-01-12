@@ -1,0 +1,2028 @@
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+python3.9 -m venv venv
+./venv/bin/python -m pip install -r requirements.txt
+Collecting numpy
+  Using cached numpy-1.25.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.7 MB)
+Collecting scipy
+  Using cached scipy-1.10.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+Installing collected packages: numpy, scipy
+Successfully installed numpy-1.25.0 scipy-1.10.1
+./bin 4 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... creating ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 82.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 34.000000
+Flops N: 11.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 8 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 82.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 308.000000
+Flops N: 19.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 16 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 59.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 2600.000000
+Flops N: 35.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 32 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 59.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 21328.000000
+Flops N: 67.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 64 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 59.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 172704.000000
+Flops N: 131.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 128 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 59.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 1389888.000000
+Flops N: 259.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 256 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 36.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 11152000.000000
+Flops N: 515.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 512 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 36.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 89347328.000000
+Flops N: 1027.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 1024 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 36.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 715303424.000000
+Flops N: 2051.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/mexp_basic.c -o obj/lu_no_blas_no_vect/mexp_basic.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/norms.c -o obj/lu_no_blas_no_vect/norms.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/lu_no_blas_no_vect/utils.c -o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/main.cpp -o obj/benchmark/main.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/benchmark/register.cpp -o obj/benchmark/register.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/mexp_basic_.c -o obj/base/mexp_basic_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/norms_.c -o obj/base/norms_.o
+gcc -g -D FLOPS -Wall -O3 -fno-tree-vectorize -ffast-math -march=native -mfma -mavx2 -mavx -I/opt/intel/oneapi/mkl/2023.0.0/include -c src/base/utils_.c -o obj/base/utils_.o
+echo obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o
+g++ -g -D FLOPS -D ROOFLIN_ -D NO_BLAS -O3 -ffast-math -march=native -mfma -Wall -Wextra -pedantic -I/opt/intel/oneapi/mkl/2023.0.0/include obj/lu_no_blas_no_vect/mexp_basic.o obj/lu_no_blas_no_vect/norms.o obj/lu_no_blas_no_vect/utils.o obj/benchmark/main.o obj/benchmark/register.o obj/base/mexp_basic_.o obj/base/norms_.o obj/base/utils_.o -o bin /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_intel_lp64.so.2 /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_sequential.so /opt/intel/oneapi/mkl/2023.0.0/lib/intel64/libmkl_core.so -lpthread -lm -ldl
+. ./init.sh
+./bin 2048 ./venv/bin/python solver.py tmp.bin data
+
+> Cheking output directory ... ✅
+> Registering functions ... ✅
+  1 functions registered
+
+  Performing test 1/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 2/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 36.000000
+Flops N^2: 207.500000
+Flops N^3: 0.000000
+
+  Performing test 3/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 1.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 75.000000
+Flops N: 10.000000
+Flops N^2: 207.000000
+Flops N^3: 0.000000
+
+  Performing test 4/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 45.000000
+Flops N: 6.000000
+Flops N^2: 92.000000
+Flops N^3: 0.000000
+
+  Performing test 5/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 30.000000
+Flops N: 4.000000
+Flops N^2: 55.000000
+Flops N^3: 0.000000
+
+  Performing test 6/6
+
+
+> Checks 'mexp_no_blas' function for validity ... NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 9.000000
+Flops N^3: 0.000000
+NORMS 
+Flops: 4.000000
+Flops N: 8.000000
+Flops N^2: 5.000000
+Flops N^3: 0.000000
+UTILS 
+Flops: 5724525568.000000
+Flops N: 4099.000000
+Flops N^2: 1.000000
+Flops N^3: 2.000000
+BASE
+MAIN 
+Flops: 17.000000
+Flops N: 2.000000
+Flops N^2: 26.000000
+Flops N^3: 0.000000

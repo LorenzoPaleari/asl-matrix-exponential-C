@@ -1,0 +1,14 @@
+#!/bin/sh
+
+test_command="./test_runner.sh"
+
+${test_command}
+exit_status=$?
+
+if [ $exit_status -ne 0 ]; then
+  echo "Tests failed, aborting commit."
+  exit 1
+else
+  echo "Tests passed, proceeding with commit."
+  exit 0
+fi
